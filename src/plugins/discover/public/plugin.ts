@@ -79,6 +79,7 @@ declare module '../../share/public' {
 }
 import { UsageCollectionSetup } from '../../usage_collection/public';
 import { ExplorePluginSetup } from '../../explore/public';
+import { RetriggerEventTab } from './application/components/retrigger_event_tab/retrigger_event_tab';
 
 /**
  * @public
@@ -197,6 +198,14 @@ export class DiscoverPlugin
       }),
       order: 20,
       component: JsonCodeBlock,
+    });
+
+    this.docViewsRegistry.addDocView({
+      title: i18n.translate('discover.docViews.eventRetrigger.eventRetriggerTitle', {
+        defaultMessage: 'Event Retrigger',
+      }),
+      order: 30,
+      component: RetriggerEventTab,
     });
 
     this.docViewsLinksRegistry = new DocViewsLinksRegistry();
